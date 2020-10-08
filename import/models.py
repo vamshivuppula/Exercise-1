@@ -6,4 +6,4 @@ class PatientInformation(models.Model):
     last_name = models.CharField(max_length=50, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     hospital = models.CharField(max_length=50, blank=True, null=True)
-    balance = models.DecimalField(max_digits=16, decimal_places=2, default=0.0)
+    balance = models.DecimalField(decimal_places=2, max_digits=16, null=True)

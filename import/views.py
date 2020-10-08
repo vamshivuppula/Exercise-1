@@ -3,6 +3,7 @@ import openpyxl
 # Create your views here.
 from openpyxl import load_workbook
 from .models import PatientInformation
+from django.views.generic import ListView
 
 #def import_file(request):
 #    if request.method == 'POST':
@@ -26,7 +27,7 @@ def test(wb_obj):
                 min_row=2, max_col=x.max_column,
                 values_only=True):
                 value_set.append(row_tuple)
-        #print(value_set,"This is in vjsvh")
+        print(value_set,"This is in vjsvh")
         #print(value_set,'hiytrewq')
 
         return list(value_set)
@@ -39,3 +40,8 @@ def import_names(data_list):
         name_data = PatientInformation(count,names[0],names[1],names[2],names[3])
         name_data.save()
         count = count +1
+
+class DataListView(ListView):
+    # list view of the object of model Major
+    model = PatientInformation
+    template_name = 'patientinformation_list.html'
